@@ -1,5 +1,5 @@
 import axios from 'axios'
-
+import {load} from 'cheerio'
 export type WordCloud = Record<string,number>
 
 // export type WordCloudEntry = {
@@ -10,8 +10,12 @@ export type WordCloud = Record<string,number>
 
 
 const getRandomPascalCaseString = async ():Promise<string>=>{
-    //return await axios.get('')
-    return Promise.resolve('SomePascalCase')
+    const response = await axios.get('https://www.classnamer.org/')
+    const $ = load(response.data);
+    const wrapper = $('#classname')
+    console.log(wrapper.text())
+    return wrapper.text()
+    //return Promise.resolve('SomePascalCase')
 }
 
 const getRandomPascalCaseStrings = async (size:number):Promise<string[]>=>{
@@ -24,7 +28,7 @@ export const splitPascalCase = (string:string):string[]=>{
 }
  
 export const generateWordCloud = async ():Promise<WordCloud>=>{
-    const pascalCaseStrings = await getRandomPascalCaseStrings(2)
+    const pascalCaseStrings = await getRandomPascalCaseStrings(20)
     const wordMap = pascalCaseStrings.reduce((acc:WordCloud,pascalString)=>{
         const words = splitPascalCase(pascalString)
         words.forEach(word=>{
