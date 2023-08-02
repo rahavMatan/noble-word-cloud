@@ -1,5 +1,5 @@
 import express, { RequestHandler } from 'express'
-import {getRandomWordCloud} from '../services/word-cloud.service'
+import {getRandomWordCloud} from '../services/word-cloud/word-cloud.service'
 export const wordCloudRouter = express.Router()
 
 
