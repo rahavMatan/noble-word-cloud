@@ -1,8 +1,8 @@
 {
-  "name": "node-express-typescript-starter-2022",
+  "name": "Noble-word-cloud-API",
   "version": "0.3.3",
-  "description": "A minimally opinionated typescript & express starter for 2022 & 2023",
-  "author": "Carter Adams <carteradams@protonmail.com>",
+  "description": "Generate a random word cloud",
+  "author": "Matan Rahav <rahavmatan@gmail.com>",
   "license": "MIT",
   "main": "dist/src/index.js",
   "scripts": {
