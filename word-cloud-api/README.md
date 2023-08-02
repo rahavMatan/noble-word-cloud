@@ -1,29 +1,10 @@
-# Node Express & Typescript Starter for 2022 & 2023
+# Random word-cloud API
 
-_"A minimally opinionated typescript & express starter for 2022 & 2023"_
+## Running locally
+ 1. run  `npm install`
+ 2. run `npm run dev`
 
-This template is also used by my utility create-my-express on npm.
 
-## Usage:
+## Enpoints:
+`GET: localhost:3000/word-cloud` to generate a random word cloud
 
-You should copy `.env.sample` to `.env` and then:
-
-`npm run dev` - Run the development server.
-
-`npm test` - Run tests.
-
-`npm run test:watch` - Run tests when files update.
-
-`npm run build` - Builds the server.
-
-`npm start` - Runs the server.
-
-## Default endpoints:
-
-A `GET` request to `/` will respond with a description of the application.
-
-A `POST` request to `/` will echo any json sent in the request body.
-
-## Help out
-
-Feedback and contributions are very welcome.
