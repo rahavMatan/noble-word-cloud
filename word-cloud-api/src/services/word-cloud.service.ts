@@ -27,18 +27,18 @@ export const splitPascalCase = (string:string):string[]=>{
     return string.replace(/[A-Z]/g,' $&').trim().split(' ').map(str=>str.toLocaleLowerCase())
 }
  
-export const generateWordCloud = async ():Promise<WordCloud>=>{
-    const pascalCaseStrings = await getRandomPascalCaseStrings(20)
-    const wordMap = pascalCaseStrings.reduce((acc:WordCloud,pascalString)=>{
-        const words = splitPascalCase(pascalString)
-        words.forEach(word=>{
-            if(!acc[word]){
-                acc[word] = 0
-            }
-            acc[word]++
-        })
+export const generateWordCloud = (words:string[]):WordCloud=>{
+    return words.reduce((acc:WordCloud,word)=>{
+        if(!acc[word]){
+            acc[word] = 0
+        }
+        acc[word]++
         return acc
     },{})
+}
 
-    return wordMap
+export const getRandomWordCloud = async ():Promise<WordCloud>=>{
+    const pascalCaseStrings = await getRandomPascalCaseStrings(20)
+    const words = pascalCaseStrings.map(splitPascalCase).flat()
+    return await generateWordCloud(words)
 }
