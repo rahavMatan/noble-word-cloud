@@ -1,9 +1,9 @@
 import {getRandomPascalCaseStrings} from './get-random-pascal-case-word'
 import {splitPascalCase} from './split-pascal-case'
 
-export type WordCloud = Record<string,number>
+type WordCloud = Record<string,number>
  
-export const generateWordCloud = (words:string[]):WordCloud=>{
+const generateWordCloud = (words:string[]):WordCloud=>{
     return words.map(word=>word.toLocaleLowerCase()).reduce((acc:WordCloud,word)=>{
         if(!acc[word]){
             acc[word] = 0
