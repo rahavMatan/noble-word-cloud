@@ -25,7 +25,7 @@ export const splitPascalCase = (string:string):string[]=>{
  
 export const generateWordCloud = async ():Promise<WordCloud>=>{
     const pascalCaseStrings = await getRandomPascalCaseStrings(2)
-    const wordMap = pascalCaseStrings.reduce((acc,pascalString)=>{
+    const wordMap = pascalCaseStrings.reduce((acc:WordCloud,pascalString)=>{
         const words = splitPascalCase(pascalString)
         words.forEach(word=>{
             if(!acc[word]){
